@@ -5,15 +5,31 @@ import "./assets/img/4geeks.ico";
 
 window.onload = () => {
   setInterval(insertCard, 10000);                               // Generamos carta cada 10 segundos.
-  const button = document.querySelector('#buttonGenerate');          // Generamos carta cada vez que le damos al botón.
-  button.addEventListener('click', insertCard);
-  insertCard();                                                 // Generamos carta siempre que se recarga la página.
+  const buttonGenerateCard = document.querySelector('#buttonGenerate');          // Generamos carta cada vez que le damos al botón.
+  buttonGenerateCard.addEventListener('click', insertCard);
+  insertCard();     
+  /*const buttonChangeWidth = document.querySelector('#buttonSetWidth');   
+  buttonChangeWidth.addEventListener('click', changeWidth);*/                                      // Generamos carta siempre que se recarga la página.
 };
 
 // Definición de constantes globales
 const palos = ['♦', '♥', '♠', '♣'];
 const valores = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'As'];
 const divContenedorTarjeta = document.querySelector('#divContenedorTarjeta');
+
+/* const changeWidth = () => {
+  const widthInput = document.querySelector('#widthCard');
+  if (widthInput) {
+    // Obtenemos el valor y lo convertimos a píxeles; considerar que el input es de tipo numérico.
+    const newWidth = widthInput.value + 'px';
+    // Obtenemos todas las tarjetas
+    const cards = document.getElementsByClassName('card');
+    // Iteramos sobre la colección y modificamos el ancho en línea de cada tarjeta.
+    Array.from(cards).forEach(card => {
+      card.style.width = newWidth;
+    });
+  }
+}; */
 
 // Función para obtener un valor aleatorio del array
 const randomElement = (arr) => arr[Math.floor(Math.random() * arr.length)];
@@ -29,7 +45,7 @@ const setCardValue = (valor, palo, span) => {
 const insertCard = () => {
   // Crear un contenedor de columna
   const col = document.createElement('div');
-  col.className = "col-12 col-sm-6 col-md-4 col-lg-3 mb-3 d-flex justify-content-center"; // mb-3 agrega un pequeño margen inferior
+  col.className = "col-12 col-sm-12 col-md-6 col-lg-4 mb-3 d-flex justify-content-center"; // mb-3 agrega un pequeño margen inferior
 
   // Generar la tarjeta
   const card = generateCard();
@@ -59,6 +75,7 @@ const generateCard = () => {
 
   // Asignar clases y estilos
   card.classList.add('card');
+  card.id = 'card';
   up.classList.add('card-up');
   mid.classList.add('card-mid');
   down.classList.add('card-down');
