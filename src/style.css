@@ -1,5 +1,81 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 
-body{
-    background: white;
+/* Estilo general */
+body {
+    background: hsl(110, 59%, 24%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo de las cartas */
+.card {
+    margin: 1%;
+    width: 20%;
+    display: flex;
+    margin-top: 10%;
+    border-radius: 12px;
+    box-shadow: 10px 10px 10px 2px rgb(0, 0, 0);
+    border: solid 1px black;
+}
+
+/* Estilo de las secciones de la carta */
+.card-up, .card-mid, .card-down {
+    display: flex;
+    flex-direction: row;
+    margin: 5%;
+}
+
+/* Estilo para la parte superior de la carta */
+.card-up {
+    justify-content: start;
+    margin-top: 1%;
+    font-size: 60px;
+}
+
+.card-up span {
+    align-self: center;
+}
+
+/* Estilo para la parte central de la carta */
+.card-mid {
+    justify-content: center;
+    font-size: 80px;
+}
+
+.card-mid span {
+    align-self: center;
+    padding: 20%;
+    font-weight: bold;
+}
+
+/* Estilo para la parte inferior de la carta */
+.card-down {
+    justify-content: end;
+    margin-bottom: 1%;
+    font-size: 60px;
+}
+
+.card-down span {
+    align-self: center;
+}
+
+
+/* Estilo para el botón de generar*/
+.buttonGenerate{
+    width: auto;
+    margin-top: 5%;
+}
+
+
+/* Estilo responsivo */
+@media (max-width: 768px) {
+    .card {
+        width: 30%; /* Ajustar tamaño en pantallas pequeñas */
+    }
+
+    .card-up, .card-mid, .card-down {
+        font-size: 40px; /* Reducir tamaños de fuente */
+    }
 }
