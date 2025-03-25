@@ -42,7 +42,7 @@ body {
 /* Estilo para la parte central de la carta */
 .card-mid {
     justify-content: center;
-    font-size: 80px;
+    font-size: 90px;
     padding-top: 4%;
     padding-bottom: 4%;
 }
