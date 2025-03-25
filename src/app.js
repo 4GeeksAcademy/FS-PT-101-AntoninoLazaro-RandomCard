@@ -4,15 +4,16 @@ import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
 window.onload = () => {
-  setInterval(generateCard, 10000);                               // Generamos carta cada 10 segundos.
+  // setInterval(generateCard, 10000);                               // Generamos carta cada 10 segundos.
   const button = document.querySelector('#buttonGenerate');       // Generamos carta cada vez que le damos al botón.
-  button.addEventListener('click', generateCard);
-  generateCard();                                                 // Generamos carta siempre que se recarga la página.
+  button.addEventListener('click', insertarTarjeta);
+  insertarTarjeta();                                                 // Generamos carta siempre que se recarga la página.
 };
 
 // Definición de constantes globales
 const palos = ['♦', '♥', '♠', '♣'];
 const valores = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'As'];
+const divContenedorTarjeta = document.querySelector('#divContenedorTarjeta');
 
 // Función para obtener un valor aleatorio del array
 const randomElement = (arr) => arr[Math.floor(Math.random() * arr.length)];
@@ -24,6 +25,23 @@ const setCardValue = (valor, palo, span) => {
   span.classList.add(colorClass);
   return span;
 };
+
+
+const insertarTarjeta = () => {
+  // Crear un contenedor de columna
+  const col = document.createElement('div');
+  col.className = "col-12 col-sm-6 col-md-4 col-lg-3 mb-3 d-flex justify-content-center"; // mb-3 agrega un pequeño margen inferior
+
+  // Generar la tarjeta
+  const card = generateCard();
+
+  // Agregar la tarjeta dentro de la columna
+  col.appendChild(card);
+
+  // Insertar la columna dentro del contenedor de tarjetas (row)
+  divContenedorTarjeta.appendChild(col);
+}
+
 
 // Función principal para generar una carta
 const generateCard = () => {
@@ -39,6 +57,7 @@ const generateCard = () => {
   const spanPaloUp = document.createElement('span');
   const spanPaloDown = document.createElement('span');
   const spanValor = document.createElement('span');
+
 
   // Asignar clases y estilos
   card.classList.add('card');
@@ -60,7 +79,5 @@ const generateCard = () => {
 
   // Añadir jerarquía de elementos a la carta
   card.append(up, mid, down);
-
-  // Insertar la carta en el contenedor y en el DOM
-  document.body.appendChild(card);
+  return card;
 };
