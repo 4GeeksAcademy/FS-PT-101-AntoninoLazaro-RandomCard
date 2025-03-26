@@ -3,36 +3,18 @@ import "./style.css";
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
-window.onload = () => {
-  setInterval(insertCard, 10000);                               // Generamos carta cada 10 segundos.
-  const buttonGenerateCard = document.querySelector('#buttonGenerate');          // Generamos carta cada vez que le damos al botón.
-  buttonGenerateCard.addEventListener('click', insertCard);
-  insertCard();     
-  /*const buttonChangeWidth = document.querySelector('#buttonSetWidth');   
-  buttonChangeWidth.addEventListener('click', changeWidth);*/                                      // Generamos carta siempre que se recarga la página.
-};
 
-// Definición de constantes globales
+// DEFINICIÓN DE VARIABLES ------------------>
+
 const palos = ['♦', '♥', '♠', '♣'];
 const valores = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'As'];
 const divContenedorTarjeta = document.querySelector('#divContenedorTarjeta');
 
-/* const changeWidth = () => {
-  const widthInput = document.querySelector('#widthCard');
-  if (widthInput) {
-    // Obtenemos el valor y lo convertimos a píxeles; considerar que el input es de tipo numérico.
-    const newWidth = widthInput.value + 'px';
-    // Obtenemos todas las tarjetas
-    const cards = document.getElementsByClassName('card');
-    // Iteramos sobre la colección y modificamos el ancho en línea de cada tarjeta.
-    Array.from(cards).forEach(card => {
-      card.style.width = newWidth;
-    });
-  }
-}; */
+// DEFINICIÓN DE FUNCIONES ------------------->
 
 // Función para obtener un valor aleatorio del array
 const randomElement = (arr) => arr[Math.floor(Math.random() * arr.length)];
+
 
 // Función para configurar el contenido y el estilo del valor en la carta
 const setCardValue = (valor, palo, span) => {
@@ -42,10 +24,12 @@ const setCardValue = (valor, palo, span) => {
   return span;
 };
 
+
+// Función para insertar la carta en el HTML.
 const insertCard = () => {
   // Crear un contenedor de columna
   const col = document.createElement('div');
-  col.className = "col-12 col-sm-12 col-md-6 col-lg-4 mb-3 d-flex justify-content-center"; // mb-3 agrega un pequeño margen inferior
+  col.classList.add('col-12','col-sm-12','col-md-6','col-lg-4','mb-3','d-flex','justify-content-center');
 
   // Generar la tarjeta
   const card = generateCard();
@@ -56,6 +40,7 @@ const insertCard = () => {
   // Insertar la columna dentro del contenedor de tarjetas (row)
   divContenedorTarjeta.appendChild(col);
 }
+
 
 // Función principal para generar una carta
 const generateCard = () => {
@@ -96,3 +81,17 @@ const generateCard = () => {
   card.append(up, mid, down);
   return card;
 };
+
+
+
+// EVENTOS --------------------------------------------> 
+
+
+window.onload = () => {                                                             // Insertamos carta siempre que se recarga la página.
+  insertCard();                    
+};
+
+setInterval(insertCard, 10000);                                                     // Insertamos carta cada 10 segundos.
+
+const buttonGenerateCard = document.querySelector('#buttonGenerate');               // Insertamos carta cada vez que le damos al botón.
+  buttonGenerateCard.addEventListener('click', insertCard);
