@@ -10,7 +10,6 @@ const palos = ['♦', '♥', '♠', '♣'];
 const valores = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'As'];
 const divContenedorTarjeta = document.querySelector('#divContenedorTarjeta');
 
-
 // DEFINICIÓN DE FUNCIONES ------------------->
 
 // Función para obtener un valor aleatorio del array
@@ -88,11 +87,11 @@ const generateCard = () => {
 // EVENTOS --------------------------------------------> 
 
 
-window.onload = () => {                                                             // Insertamos carta siempre que se recarga la página.
+window.onload = () => {                                                             // Siempre que se recarga la página cambiamos cambiamos la carta.
   insertCard();                    
 };
 
-setInterval(insertCard, 10000);                                                     // Insertamos carta cada 10 segundos.
+setInterval(insertCard, 10000);                                                     // Insertamos una carta adicional carta cada 10 segundos.
 
-const buttonGenerateCard = document.querySelector('#buttonGenerate');               // Insertamos carta cada vez que le damos al botón.
+const buttonGenerateCard = document.querySelector('#buttonGenerate');               // Insertamos una carta adicional cada vez que le damos al botón.
   buttonGenerateCard.addEventListener('click', insertCard);
