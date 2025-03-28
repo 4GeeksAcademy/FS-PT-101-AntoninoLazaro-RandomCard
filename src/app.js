@@ -10,6 +10,7 @@ const palos = ['♦', '♥', '♠', '♣'];
 const valores = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'As'];
 const divContenedorTarjeta = document.querySelector('#divContenedorTarjeta');
 
+
 // DEFINICIÓN DE FUNCIONES ------------------->
 
 // Función para obtener un valor aleatorio del array
