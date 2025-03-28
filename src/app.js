@@ -38,7 +38,7 @@ const insertCard = () => {
   col.appendChild(card);
 
   // Insertar la columna dentro del contenedor de tarjetas (row)
-  divContenedorTarjeta.appendChild(col);
+  divContenedorTarjeta.prepend(col);
 }
 
 
